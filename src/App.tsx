@@ -6,6 +6,7 @@ import { NewNote } from "./NewNote";
 import { useLocalStorage } from "./useLocalStorage";
 import { useMemo } from "react";
 import { v4 as uuidV4 } from "uuid";
+import { HooksDemo } from "./hooksDemo/hooksDemo";
 
 export type Note = {
   id: string;
@@ -64,6 +65,7 @@ function App() {
           <Route path="edit" element={<h1>edit</h1>} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/hooksDemo" element={<HooksDemo />} />
       </Routes>
     </Container>
   );
