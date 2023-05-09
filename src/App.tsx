@@ -6,7 +6,7 @@ import { NewNote } from "./NewNote";
 import { useLocalStorage } from "./useLocalStorage";
 import { useMemo } from "react";
 import { v4 as uuidV4 } from "uuid";
-import { HooksDemo } from "./hooksDemo/hooksDemo";
+import { HooksDemo } from "./hooksDemo/HooksDemo";
 
 export type Note = {
   id: string;
