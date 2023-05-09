@@ -1,13 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export function Form() {
   const [age, setAge] = useState(0);
   const [name, setName] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
-  const person = { age, name };
+  // this gets re-created on each render:
+  //     const person = { age, name };
+
+  const person = useMemo(() => {
+    return { age, name };
+  }, [age, name]);
 
   useEffect(() => {
+    //this will get logged even when darkMode changes w/o using memo b/c the whole component re-renders
+    // and a "new" person object gets created with the same properties, which is not the same
+    //person. use useMemo to get around.
     console.log(person);
   }, [person]);
 
